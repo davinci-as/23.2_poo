@@ -1,10 +1,16 @@
 import house.SilentCat;
+import house.Tutle;
 import house.WildCat;
 
 public class Main {
     public static void main(String[] args) {
         SilentCat bolaDeNieve = new SilentCat();
         WildCat miMichi = new WildCat();
+        Tutle donatelo = new Tutle();
+        donatelo.setName("Donatelo");
+        donatelo.setAge(50);
+        donatelo.setSpeed(5);
+        donatelo.setColor(3);
 
         bolaDeNieve.setEnergy(1);
         bolaDeNieve.setAge(6);
@@ -24,5 +30,6 @@ public class Main {
 
         System.out.println(miMichi.getName() + " " + miMichi.jump());
         System.out.println(bolaDeNieve.getName() + " " + bolaDeNieve.jump());
+        System.out.println(donatelo.getName() + " " + donatelo.swim());
     }
 }
