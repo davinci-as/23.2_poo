@@ -1,12 +1,12 @@
 import house.SilentCat;
-import house.Tutle;
+import house.Turtle;
 import house.WildCat;
 
 public class Main {
     public static void main(String[] args) {
         SilentCat bolaDeNieve = new SilentCat();
         WildCat miMichi = new WildCat();
-        Tutle donatelo = new Tutle();
+        Turtle donatelo = new Turtle();
         donatelo.setName("Donatelo");
         donatelo.setAge(50);
         donatelo.setSpeed(5);

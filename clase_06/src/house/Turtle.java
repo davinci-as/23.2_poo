@@ -1,6 +1,6 @@
 package house;
 
-public class Tutle extends Animal{
+public class Turtle extends Animal{
     private int speed;
 
     public int getSpeed() {
