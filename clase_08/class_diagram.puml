@@ -31,6 +31,9 @@ class house.Animal {
 + String getName()
 + void setName(String)
 }
+class house.Pet {
++ void play(int)
+}
 abstract class house.Cat {
 + {abstract}String jump()
 }
@@ -38,7 +41,8 @@ abstract class house.Cat {
 
 house.Cat <|-- house.SilentCat
 house.Animal <|-- house.Turtle
-house.Animal <|-- house.Dog
+house.Pet <|-- house.Dog
 house.Cat <|-- house.WildCat
-house.Animal <|-- house.Cat
+house.Animal <|-- house.Pet
+house.Pet <|-- house.Cat
 @enduml

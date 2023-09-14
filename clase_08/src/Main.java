@@ -41,5 +41,9 @@ public class Main {
         System.out.println(bolaDeNieve.getName() + " " + bolaDeNieve.jump());
         System.out.println(donatelo.getName() + " " + donatelo.swim());
         System.out.println(firulais.bark());
+
+
+        miMichi.play(2);
+        firulais.play(2);
     }
 }
