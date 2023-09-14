@@ -4,6 +4,7 @@ class Main {
 }
 class house.SilentCat {
 + String jump()
++ void play(int)
 }
 class house.Turtle {
 - int speed
@@ -13,9 +14,11 @@ class house.Turtle {
 }
 class house.Dog {
 + String bark()
++ void play(int)
 }
 class house.WildCat {
 + String jump()
++ void play(int)
 }
 class house.Animal {
 - String name
@@ -31,8 +34,8 @@ class house.Animal {
 + String getName()
 + void setName(String)
 }
-class house.Pet {
-+ void play(int)
+abstract class house.Pet {
++ {abstract}void play(int)
 }
 abstract class house.Cat {
 + {abstract}String jump()

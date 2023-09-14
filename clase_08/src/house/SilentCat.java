@@ -6,4 +6,9 @@ public class SilentCat extends Cat {
         setEnergy(getEnergy() + 1);
         return "....";
     }
+
+    @Override
+    public void play(int time) {
+
+    }
 }

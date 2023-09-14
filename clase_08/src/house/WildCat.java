@@ -6,4 +6,9 @@ public class WildCat extends Cat {
         setEnergy(getEnergy() + 5);
         return "rrrrrr";
     }
+
+    @Override
+    public void play(int time) {
+
+    }
 }
