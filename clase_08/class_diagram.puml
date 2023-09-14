@@ -1,18 +1,18 @@
 @startuml
+class Main {
++ {static} void main(String[])
+}
+class house.SilentCat {
++ String jump()
+}
 class house.Turtle {
 - int speed
 + int getSpeed()
 + void setSpeed(int)
 + String swim()
 }
-class house.SilentCat {
-+ String jump()
-}
-abstract class house.Cat {
-+ {abstract}String jump()
-}
-class Main {
-+ {static} void main(String[])
+class house.Dog {
++ String bark()
 }
 class house.WildCat {
 + String jump()
@@ -31,10 +31,14 @@ class house.Animal {
 + String getName()
 + void setName(String)
 }
+abstract class house.Cat {
++ {abstract}String jump()
+}
 
 
-house.Animal <|-- house.Turtle
 house.Cat <|-- house.SilentCat
-house.Animal <|-- house.Cat
+house.Animal <|-- house.Turtle
+house.Animal <|-- house.Dog
 house.Cat <|-- house.WildCat
+house.Animal <|-- house.Cat
 @enduml
