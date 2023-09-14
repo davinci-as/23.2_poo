@@ -1,12 +1,21 @@
+import house.Dog;
 import house.SilentCat;
 import house.Turtle;
 import house.WildCat;
 
 public class Main {
     public static void main(String[] args) {
+        Dog firulais = new Dog();
         SilentCat bolaDeNieve = new SilentCat();
         WildCat miMichi = new WildCat();
         Turtle donatelo = new Turtle();
+
+        firulais.setName("Firulais");
+        firulais.setAge(3);
+        firulais.setColor(3);
+        firulais.setEnergy(2);
+
+
         donatelo.setName("Donatelo");
         donatelo.setAge(50);
         donatelo.setSpeed(5);
@@ -31,5 +40,6 @@ public class Main {
         System.out.println(miMichi.getName() + " " + miMichi.jump());
         System.out.println(bolaDeNieve.getName() + " " + bolaDeNieve.jump());
         System.out.println(donatelo.getName() + " " + donatelo.swim());
+        System.out.println(firulais.bark());
     }
 }
