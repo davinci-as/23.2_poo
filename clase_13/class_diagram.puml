@@ -14,39 +14,6 @@ class estadisticas.Team {
 + int getGoalCounter()
 + void setGoalCounter(int)
 }
-class estadisticas.Player {
-- String name
-- int number
-- String position
-- int goalCounter
-- Team team
-+ String getName()
-+ void setName(String)
-+ int getNumber()
-+ void setNumber(int)
-+ String getPosition()
-+ void setPosition(String)
-+ int getGoalCounter()
-+ void setGoalCounter(int)
-+ Team getTeam()
-+ void setTeam(Team)
-}
-class Main {
-+ {static} void main(String[])
-}
-class estadisticas.Match {
-- Date date
-- int visitantGoals
-- int localGoals
-+ Date getDate()
-+ void setDate(Date)
-+ int getVisitantGoals()
-+ void setVisitantGoals(int)
-+ void incrementVisitantGoals()
-+ int getLocalGoals()
-+ void setLocalGoals(int)
-+ void incrementLocalGoals()
-}
 class estadisticas.Season {
 - String name
 - Date startDate
@@ -67,6 +34,45 @@ class estadisticas.Season {
 + void removeMatch(Match)
 + ArrayList<Match> getMatches()
 + void setMatches(ArrayList<Match>)
+}
+class Main {
++ {static} void main(String[])
+}
+class estadisticas.Match {
+- Date date
+- int visitantGoals
+- int localGoals
+- Team visitantTeam
+- Team localTeam
++ Date getDate()
++ void setDate(Date)
++ int getVisitantGoals()
++ void setVisitantGoals(int)
++ void incrementVisitantGoals()
++ int getLocalGoals()
++ void setLocalGoals(int)
++ void incrementLocalGoals()
++ Team getVisitantTeam()
++ void setVisitantTeam(Team)
++ Team getLocalTeam()
++ void setLocalTeam(Team)
+}
+class estadisticas.Player {
+- String name
+- int number
+- String position
+- int goalCounter
+- Team team
++ String getName()
++ void setName(String)
++ int getNumber()
++ void setNumber(int)
++ String getPosition()
++ void setPosition(String)
++ int getGoalCounter()
++ void setGoalCounter(int)
++ Team getTeam()
++ void setTeam(Team)
 }
 
 estadisticas.Team o-- estadisticas.Player
