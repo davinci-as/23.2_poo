@@ -3,10 +3,7 @@ import estadisticas.Team;
 
 public class Main {
     public static void main(String[] args) {
-        Team argentina = new Team();
-        argentina.setName("Argentina");
-        argentina.setGoalCounter(0);
-        argentina.setTableScore(0);
+        Team argentina = new Team("Argentina", 4, 3);
 
         Player messi = new Player();
         messi.setName("Lionel Messi");
@@ -14,5 +11,7 @@ public class Main {
         messi.setPosition("Delantero");
         messi.setGoalCounter(0);
         messi.setTeam(argentina);
+
+        System.out.println(messi.getTeam().getName());
     }
 }
