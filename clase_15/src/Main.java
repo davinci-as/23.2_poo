@@ -1,5 +1,12 @@
+import estadisticas.Player;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Player messi = new Player();
+        messi.setName("Lionel Messi");
+        messi.setNumber(10);
+        messi.setPosition("Delantero");
+        messi.setGoalCounter(0);
+
     }
 }

@@ -1,4 +1,4 @@
-# Ejercicio Clase 13
+# Ejercicio Clase 15
 
 El siguiente, representa el diagrama de clases del ejercicio, incluyendo las relaciones:
 
