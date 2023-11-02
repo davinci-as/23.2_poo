@@ -73,11 +73,7 @@ public class Player {
     }
     public void addToTeamList() {
         if(this.getTeam() == null) return;
-
-        this
-            .getTeam()    //Team
-            .getPlayers() //ArrayList<Player>
-            .add(this);  //add(Player)
+        getTeam().addPlayer(this);
     }
 
 }
