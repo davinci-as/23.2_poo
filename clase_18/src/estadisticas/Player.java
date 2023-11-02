@@ -57,4 +57,26 @@ public class Player {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+    public void addPlayerToTeamList(Player player, Team team) {
+        if(player.getTeam() == null) {
+            team.addPlayer(player);
+        } else {
+            player
+                .getTeam()    //Team
+                .getPlayers() //ArrayList<Player>
+                .add(player);  //add(Player)
+        }
+
+
+    }
+    public void addPlayerToTeamList(Player player) {
+        if(player.getTeam() == null) return;
+
+        player
+            .getTeam()    //Team
+            .getPlayers() //ArrayList<Player>
+            .add(player);  //add(Player)
+    }
+
 }

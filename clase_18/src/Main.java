@@ -9,11 +9,7 @@ public class Main {
         Player messi = new Player("Lionel Messi", 10, "Delantero", argentina);
         Player dibu = new Player("Emiliano Martinez", 1, "Arquero", argentina);
 
-        // player -> agregar equipo
-        messi
-            .getTeam()    //Team
-            .getPlayers() //ArrayList<Player>
-            .add(messi);  //add(Player)
+        messi.addPlayerToTeamList(messi);
 
         dimaria
                 .getTeam()    //Team
