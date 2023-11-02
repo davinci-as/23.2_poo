@@ -38,9 +38,11 @@ public class Team {
     }
 
     public void addPlayer(Player player) {
+        getPlayers().add(player);
     }
 
     public void removePlayer(Player player) {
+        getPlayers().remove(player);
     }
 
     public int getTableScore() {
