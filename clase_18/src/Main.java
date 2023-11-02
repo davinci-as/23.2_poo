@@ -9,10 +9,6 @@ public class Main {
         Player messi = new Player("Lionel Messi", 10, "Delantero", argentina);
         Player dibu = new Player("Emiliano Martinez", 1, "Arquero", argentina);
 
-        messi.addToTeamList();
-        fideo.addToTeamList();
-        dibu.addToTeamList();
-
         System.out.println(messi.getTeam().getName());
     }
 }
