@@ -58,25 +58,25 @@ public class Player {
         this.team = team;
     }
 
-    public void addPlayerToTeamList(Player player, Team team) {
-        if(player.getTeam() == null) {
-            team.addPlayer(player);
+    public void addToTeamList(Team team) {
+        if(this.getTeam() == null) {
+            team.addPlayer(this);
         } else {
-            player
+            this
                 .getTeam()    //Team
                 .getPlayers() //ArrayList<Player>
-                .add(player);  //add(Player)
+                .add(this);  //add(Player)
         }
 
 
     }
-    public void addPlayerToTeamList(Player player) {
-        if(player.getTeam() == null) return;
+    public void addToTeamList() {
+        if(this.getTeam() == null) return;
 
-        player
+        this
             .getTeam()    //Team
             .getPlayers() //ArrayList<Player>
-            .add(player);  //add(Player)
+            .add(this);  //add(Player)
     }
 
 }
