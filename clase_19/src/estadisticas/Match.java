@@ -26,7 +26,7 @@ public class Match {
     }
 
     public void incrementVisitantGoals(){
-
+        setVisitantGoals(getVisitantGoals() + 1);
     }
 
     public int getLocalGoals() {
@@ -38,7 +38,7 @@ public class Match {
     }
 
     public void incrementLocalGoals() {
-
+        setLocalGoals(getLocalGoals() + 1); //this.localGoals ++;
     }
 
     public Team getVisitantTeam() {
