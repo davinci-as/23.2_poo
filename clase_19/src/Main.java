@@ -18,9 +18,7 @@ public class Main {
 
         argentina.showPlayersList();
 
-        Match finalMatch = new Match();
-        finalMatch.setLocalTeam(argentina);
-        finalMatch.setVisitantTeam(francia);
+        Match finalMatch = new Match(argentina, francia);
 
         finalMatch.incrementLocalGoals();
         finalMatch.incrementVisitantGoals();
