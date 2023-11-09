@@ -20,27 +20,29 @@ public class Main {
     }
     public static void main(String[] args) {
         Season faseGrupoMundial = new Season();
-        Team argentina = new Team("Argentina", 4, 3);
-        Team francia = new Team("Francia", 0, 0);
 
-        faseGrupoMundial.addTeam(argentina);
-        faseGrupoMundial.addTeam(francia);
+        faseGrupoMundial.addTeam(new Team("Argentina"));
+        faseGrupoMundial.addTeam(new Team("Francia"));
+        faseGrupoMundial.addTeam(new Team("Alemania"));
+        faseGrupoMundial.addTeam(new Team("Italia"));
+
+        ArrayList<Team> countries = faseGrupoMundial.getTeams();
 
         String[][] jugadoresArgentina = generatePlayer();
         String[][] jugadoresFrancia = generatePlayer();
 
         for (int i = 0; i < jugadoresArgentina.length; i++) {
-            new Player(jugadoresArgentina[i][0], i + 1, jugadoresArgentina[i][1], argentina);
+            new Player(jugadoresArgentina[i][0], i + 1, jugadoresArgentina[i][1], countries.get(0));
         }
 
         for (int i = 0; i < jugadoresFrancia.length; i++) {
-            new Player(jugadoresFrancia[i][0], i + 1, jugadoresFrancia[i][1], francia);
+            new Player(jugadoresFrancia[i][0], i + 1, jugadoresFrancia[i][1], countries.get(1));
         }
 
 
-        argentina.showPlayersList();
+        countries.get(0).showPlayersList();
 
-        Match finalMatch = new Match(argentina, francia);
+        Match finalMatch = new Match(countries.get(0), countries.get(1));
 
         finalMatch.incrementLocalGoals();
         finalMatch.incrementVisitantGoals();
