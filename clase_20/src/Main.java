@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static String[][] generateArgPlayer() {
-        String[][] jugadoresArgentina = new String[2][2];
+    public static String[][] generatePlayer() {
+        String[][] jugadores = new String[2][2];
 
-        for (int i = 0; i < jugadoresArgentina.length; i++) {
-            jugadoresArgentina[i][0] = JOptionPane.showInputDialog("por favor el nombre del jugador que usa la camiseta: " + (i+1));
-            jugadoresArgentina[i][1] = JOptionPane.showInputDialog("por favor ingrese la posición de: " + jugadoresArgentina[i][0]);
+        for (int i = 0; i < jugadores.length; i++) {
+            jugadores[i][0] = JOptionPane.showInputDialog("por favor el nombre del jugador que usa la camiseta: " + (i+1));
+            jugadores[i][1] = JOptionPane.showInputDialog("por favor ingrese la posición de: " + jugadores[i][0]);
         }
 
-        return jugadoresArgentina;
+        return jugadores;
     }
     public static void main(String[] args) {
         Season faseGrupoMundial = new Season();
@@ -26,11 +26,17 @@ public class Main {
         faseGrupoMundial.addTeam(argentina);
         faseGrupoMundial.addTeam(francia);
 
-        String[][] jugadoresArgentina = generateArgPlayer();
+        String[][] jugadoresArgentina = generatePlayer();
+        String[][] jugadoresFrancia = generatePlayer();
 
         for (int i = 0; i < jugadoresArgentina.length; i++) {
             new Player(jugadoresArgentina[i][0], i + 1, jugadoresArgentina[i][1], argentina);
         }
+
+        for (int i = 0; i < jugadoresFrancia.length; i++) {
+            new Player(jugadoresFrancia[i][0], i + 1, jugadoresFrancia[i][1], francia);
+        }
+
 
         argentina.showPlayersList();
 
