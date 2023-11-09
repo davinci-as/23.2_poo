@@ -23,33 +23,29 @@ public class Main {
 
         faseGrupoMundial.addTeam(new Team("Argentina"));
         faseGrupoMundial.addTeam(new Team("Francia"));
-        faseGrupoMundial.addTeam(new Team("Alemania"));
-        faseGrupoMundial.addTeam(new Team("Italia"));
+
 
         ArrayList<Team> countries = faseGrupoMundial.getTeams();
 
-        String[][] jugadoresArgentina = generatePlayer();
-        String[][] jugadoresFrancia = generatePlayer();
-
-        for (int i = 0; i < jugadoresArgentina.length; i++) {
-            new Player(jugadoresArgentina[i][0], i + 1, jugadoresArgentina[i][1], countries.get(0));
+        for (int j = 0; j < countries.size(); j++) {
+            JOptionPane.showMessageDialog(null, "Vamos a cargar los jugadores de : " + countries.get(j).getName());
+            String[][] jugadores = generatePlayer();
+            for (int i = 0; i < jugadores.length; i++) {
+                new Player(jugadores[i][0], i + 1, jugadores[i][1], countries.get(j));
+            }
         }
 
-        for (int i = 0; i < jugadoresFrancia.length; i++) {
-            new Player(jugadoresFrancia[i][0], i + 1, jugadoresFrancia[i][1], countries.get(1));
+        for (int i = 0; i < countries.size(); i++) {
+            countries.get(i).showPlayersList();
         }
 
-
-        countries.get(0).showPlayersList();
+        countries.forEach(country -> country.showPlayersList());
 
         Match finalMatch = new Match(countries.get(0), countries.get(1));
 
         finalMatch.incrementLocalGoals();
         finalMatch.incrementVisitantGoals();
         finalMatch.incrementLocalGoals();
-
-
-
 
     }
 }
