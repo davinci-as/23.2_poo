@@ -1,7 +1,4 @@
-import estadisticas.Match;
-import estadisticas.Player;
-import estadisticas.Season;
-import estadisticas.Team;
+import estadisticas.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -19,14 +16,15 @@ public class Main {
         return jugadores;
     }
     public static void main(String[] args) {
-        Season faseGrupoMundial = new Season();
+        Llave semiFinalMundial = new Llave(); // 4 equipos, 2 partidos, 2 equipos ganadores (Arg y francia)
+        // así agrego los equipos
+        semiFinalMundial.addTeam(new Team("Argentina"));
+        semiFinalMundial.addTeam(new Team("Croacia"));
+        semiFinalMundial.addTeam(new Team("Francia"));
+        semiFinalMundial.addTeam(new Team("Marruecos"));
 
-        faseGrupoMundial.addTeam(new Team("Argentina"));
-        faseGrupoMundial.addTeam(new Team("Francia"));
-
-
-        ArrayList<Team> countries = faseGrupoMundial.getTeams();
-
+        // cargo los equipos
+        ArrayList<Team> countries = semiFinalMundial.getTeams();
         for (int j = 0; j < countries.size(); j++) {
             JOptionPane.showMessageDialog(null, "Vamos a cargar los jugadores de : " + countries.get(j).getName());
             String[][] jugadores = generatePlayer();
@@ -35,17 +33,48 @@ public class Main {
             }
         }
 
-        for (int i = 0; i < countries.size(); i++) {
-            countries.get(i).showPlayersList();
-        }
+        //generar los partidos
+        semiFinalMundial.addMatch(new Match(
+                countries.get(0),
+                countries.get(1))
+        ); //Arg vs croacia
+        semiFinalMundial.addMatch(new Match(
+                countries.get(2),
+                countries.get(3)
+        ));
 
-        countries.forEach(country -> country.showPlayersList());
+        //jugar partidos
+        Match semi1 = semiFinalMundial.getMatches().get(0); //Arg vs croacia
+        semi1.incrementLocalGoals();
+        semi1.incrementLocalGoals();
+        semi1.incrementLocalGoals();
 
-        Match finalMatch = new Match(countries.get(0), countries.get(1));
+        Match semi2 = semiFinalMundial.getMatches().get(1); //Francia vs Marruecos
+        semi2.incrementLocalGoals();
+        semi2.incrementLocalGoals();
 
+
+        //Creo Season
+        Llave fasefinalMundial = new Llave();
+        //Cargue los equipos desde la fase anterior
+        // fasefinalMundial <-- semiFinalMundial::getNextStepTeams
+        fasefinalMundial.setTeams(semiFinalMundial.getNextStepTeams());
+
+        //Generar partidos
+        fasefinalMundial.addMatch(new Match(
+                fasefinalMundial.getTeams().get(0),
+                fasefinalMundial.getTeams().get(1))
+        ); //Arg vs Francia
+
+        //Jugaar los partidos
+        Match finalMatch = fasefinalMundial.getMatches().get(0);
         finalMatch.incrementLocalGoals();
-        finalMatch.incrementVisitantGoals();
-        finalMatch.incrementLocalGoals();
+
+        //Resultado final
+        fasefinalMundial.getNextStepTeams().forEach(team -> {
+            team.showPlayersList();
+        });
+
 
     }
 }
