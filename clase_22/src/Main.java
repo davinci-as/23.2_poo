@@ -35,15 +35,7 @@ public class Main {
         }
 
         //generar los partidos
-        //cantidad partido -> cantidad equipos / 2
-        int cantidadEquipos = semiFinalMundial.getTeams().size();
-        int cantidadPartidos = cantidadEquipos / 2;
-        for(int i = 0; i < cantidadPartidos; i++) {
-            semiFinalMundial.addMatch(new Match(
-                    semiFinalMundial.getTeams().get(i*2),
-                    semiFinalMundial.getTeams().get((i*2) + 1))
-            );
-        }
+        semiFinalMundial.generateMatches();
 
         //jugar partidos
         Match semi1 = semiFinalMundial.getMatches().get(0); //Arg vs croacia
