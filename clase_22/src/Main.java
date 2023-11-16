@@ -16,28 +16,13 @@ public class Main {
         return jugadores;
     }
     public static void main(String[] args) {
+        String[] equipos = {"Argentina", "Croacia", "Francia", "Marruecos"};
+        ArrayList<Team> equiposQueAvanzanSemi = generarEquipos(equipos);
+
         Llave semiFinalMundial = new Llave(); // 4 equipos, 2 partidos, 2 equipos ganadores (Arg y francia)
-        // así agrego los equipos
-        semiFinalMundial.addTeam(new Team("Argentina"));
-        semiFinalMundial.addTeam(new Team("Croacia"));
-        semiFinalMundial.addTeam(new Team("Francia"));
-        semiFinalMundial.addTeam(new Team("Marruecos"));
-
-        // cargo los equipos
-        for (int j = 0; j < semiFinalMundial.getTeams().size(); j++) {
-            JOptionPane.showMessageDialog(null,
-                    "Vamos a cargar los jugadores de : " + semiFinalMundial.getTeams().get(j).getName()
-            );
-            String[][] jugadores = generatePlayer();
-            for (int i = 0; i < jugadores.length; i++) {
-                new Player(jugadores[i][0], i + 1, jugadores[i][1], semiFinalMundial.getTeams().get(j));
-            }
-        }
-
-        //generar los partidos
+        semiFinalMundial.setTeams(equiposQueAvanzanSemi);
         semiFinalMundial.generateMatches();
 
-        //jugar partidos
         Match semi1 = semiFinalMundial.getMatches().get(0); //Arg vs croacia
         semi1.incrementLocalGoals();
         semi1.incrementLocalGoals();
@@ -50,11 +35,7 @@ public class Main {
 
         //Creo Season
         Llave fasefinalMundial = new Llave();
-        //Cargue los equipos desde la fase anterior
-        // fasefinalMundial <-- semiFinalMundial::getNextStepTeams
         fasefinalMundial.setTeams(semiFinalMundial.getNextStepTeams());
-
-        //Generar partidos
         fasefinalMundial.generateMatches();
 
         //Jugaar los partidos
@@ -67,5 +48,22 @@ public class Main {
         });
 
 
+    }
+
+    private static ArrayList<Team> generarEquipos(String[] equipos) {
+        ArrayList<Team> equiposQueAvanzanSemi = new ArrayList<>();
+        for(String equipo: equipos) {
+            Team nuevoEquipo = new Team(equipo);
+            String[][] jugadores = generatePlayer();
+
+            equiposQueAvanzanSemi.add(nuevoEquipo);
+            JOptionPane.showMessageDialog(null,
+                    "Vamos a cargar los jugadores de : " + equipo
+            );
+            for (int i = 0; i < jugadores.length; i++) {
+                new Player(jugadores[i][0], i + 1, jugadores[i][1], nuevoEquipo);
+            }
+        }
+        return equiposQueAvanzanSemi;
     }
 }
