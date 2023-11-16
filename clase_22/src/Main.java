@@ -55,10 +55,7 @@ public class Main {
         fasefinalMundial.setTeams(semiFinalMundial.getNextStepTeams());
 
         //Generar partidos
-        fasefinalMundial.addMatch(new Match(
-                fasefinalMundial.getTeams().get(0),
-                fasefinalMundial.getTeams().get(1))
-        ); //Arg vs Francia
+        fasefinalMundial.generateMatches();
 
         //Jugaar los partidos
         Match finalMatch = fasefinalMundial.getMatches().get(0);
