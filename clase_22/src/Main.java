@@ -24,23 +24,24 @@ public class Main {
         semiFinalMundial.addTeam(new Team("Marruecos"));
 
         // cargo los equipos
-        ArrayList<Team> countries = semiFinalMundial.getTeams();
-        for (int j = 0; j < countries.size(); j++) {
-            JOptionPane.showMessageDialog(null, "Vamos a cargar los jugadores de : " + countries.get(j).getName());
+        for (int j = 0; j < semiFinalMundial.getTeams().size(); j++) {
+            JOptionPane.showMessageDialog(null,
+                    "Vamos a cargar los jugadores de : " + semiFinalMundial.getTeams().get(j).getName()
+            );
             String[][] jugadores = generatePlayer();
             for (int i = 0; i < jugadores.length; i++) {
-                new Player(jugadores[i][0], i + 1, jugadores[i][1], countries.get(j));
+                new Player(jugadores[i][0], i + 1, jugadores[i][1], semiFinalMundial.getTeams().get(j));
             }
         }
 
         //generar los partidos
         semiFinalMundial.addMatch(new Match(
-                countries.get(0),
-                countries.get(1))
+                semiFinalMundial.getTeams().get(0),
+                semiFinalMundial.getTeams().get(1))
         ); //Arg vs croacia
         semiFinalMundial.addMatch(new Match(
-                countries.get(2),
-                countries.get(3)
+                semiFinalMundial.getTeams().get(2),
+                semiFinalMundial.getTeams().get(3)
         ));
 
         //jugar partidos
